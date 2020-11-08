@@ -21,6 +21,8 @@
 
     <p>
       Last ran: <span id="last-run"><i>never</i></span>
+      <br />
+      <span id="ascii-alert" style="color: #f00"></span>
     </p>
     <textarea id="result" readonly="readonly" rows="30" cols="80"></textarea>
 
@@ -34,7 +36,18 @@
         const result = document.getElementById("result");
         result.value = response.data;
         const lastrun = document.getElementById("last-run");
-        lastrun.innerHTML = new Date().toLocaleString();
+        lastrun.innerText = new Date().toLocaleString();
+
+        const nonAsciiCharacters = new Set(
+          [...content].filter((c) => c.charCodeAt(0) > 128)
+        );
+        const msg =
+          nonAsciiCharacters.size === 0
+            ? ""
+            : `You're using non-ASCII characters in your code: ${[
+                ...nonAsciiCharacters,
+              ].join(" ")}`;
+        document.getElementById("ascii-alert").innerText = msg;
       };
     </script>
   </body>
