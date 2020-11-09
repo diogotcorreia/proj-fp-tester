@@ -145,10 +145,6 @@ class TestEscolherPosicaoAuto(unittest.TestCase):
 
 class TestJogoDoGalo(unittest.TestCase):
     def test_jogo_do_galo1(self):
-        """
-        Testa jogo do galo com estrategia perfeita (e aplicada a regra 4)
-        """
-
         dirname = os.path.dirname(__file__)
         sys.stdin = open(os.path.join(
             dirname, 'testes_jogo_do_galo/test1_input.txt'))
