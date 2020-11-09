@@ -163,6 +163,28 @@ class TestJogoDoGalo(unittest.TestCase):
 
         result.close()
         answer.close()
+        sys.stdin.close()
+
+    def test_jogo_do_galo2(self):
+        dirname = os.path.dirname(__file__)
+        sys.stdin = open(os.path.join(
+            dirname, 'testes_jogo_do_galo/test2_input.txt'))
+        result = open(os.path.join(
+            dirname, 'testes_jogo_do_galo/my_out.txt'), "w+")
+
+        sys.stdout = result
+        target.jogo_do_galo('X', 'perfeito')
+        result.seek(0, 0)
+
+        answer = open(os.path.join(
+            dirname, 'testes_jogo_do_galo/test2_answer.txt'), 'r')
+
+        self.maxDiff = None
+        self.assertEqual(answer.read(), result.read())
+
+        result.close()
+        answer.close()
+        
 
 
 if __name__ == '__main__':
