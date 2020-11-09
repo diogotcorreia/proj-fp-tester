@@ -41,14 +41,14 @@ class TestEhTabuleiro(unittest.TestCase):
 
 class TestJogoDoGalo(unittest.TestCase):
     def test_jogo_do_galo1(self):
-        sys.stdin = open('input1.txt')
-        result = open("output", "w+")
+        sys.stdin = open('testes_jogo_do_galo/test1_input.txt')
+        result = open("testes_jogo_do_galo/my_out.txt", "w+")
 
         sys.stdout = result
         target.jogo_do_galo('X', 'perfeito')
         result.seek(0,0)
 
-        answer = open('answer.txt', 'r')
+        answer = open('testes_jogo_do_galo/test1_answer.txt', 'r')
 
         self.maxDiff = None
         self.assertEqual(answer.read(), result.read())
