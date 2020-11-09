@@ -39,5 +39,22 @@ class TestEhTabuleiro(unittest.TestCase):
         self.assertEqual(result, False)
 
 
+class TestJogoDoGalo(unittest.TestCase):
+    def test_jogo_do_galo1(self):
+        sys.stdin = open('input1.txt')
+        result = open("output", "w+")
+
+        sys.stdout = result
+        target.jogo_do_galo('X', 'perfeito')
+        result.seek(0,0)
+
+        answer = open('answer.txt', 'r')
+
+        self.maxDiff = None
+        self.assertEqual(answer.read(), result.read())
+
+        result.close()
+        answer.close()    
+
 if __name__ == '__main__':
     unittest.main(argv=['first-arg-is-ignored'])
