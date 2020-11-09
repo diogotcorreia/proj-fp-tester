@@ -1,3 +1,4 @@
+
 import unittest
 import sys
 import importlib
@@ -38,6 +39,108 @@ class TestEhTabuleiro(unittest.TestCase):
         data = ((True, 0, False), (-1, 1, True), (1, -1, False))
         result = target.eh_tabuleiro(data)
         self.assertEqual(result, False)
+
+
+
+class TestEscolherPosicaoAuto(unittest.TestCase):
+    def test_escolher_posicao_auto1(self):
+        """
+        Testa a regra 1 (vitoria)
+        tableiro = ((1,0,0), (0,1,0), (0,0,0))
+        """
+        data = ((1,0,0), (0,1,0), (0,0,0))
+
+        result = target.escolher_posicao_auto(data, 1, 'perfeito')
+
+        self.assertEqual(result, 9)
+
+    def test_escolher_posicao_auto2(self):
+        """
+        Testa a regra 2 (bloqueio)
+        tableiro = ((1,0,0), (0,1,0), (0,0,0))
+        """
+        data = ((1,0,0), (0,1,0), (0,0,0))
+
+        result = target.escolher_posicao_auto(data, -1, 'perfeito')
+
+        self.assertEqual(result, 9)
+
+    def test_escolher_posicao_auto3(self):
+        """
+        Testa a regra 3 (bifurcacao)
+        tableiro = ((0,0,0), (1,-1,-1), (0,0,1))
+        """
+        data = ((0,0,0), (1,-1,-1), (0,0,1))
+
+        result = target.escolher_posicao_auto(data, 1, 'perfeito')
+
+        self.assertEqual(result, 7)
+
+    def test_escolher_posicao_auto4(self):
+        """
+        Testa a regra 4 (bloqueio de bifurcacao com numero bifurcacoes == 1)
+        tableiro = ((0,0,0), (1,-1,-1), (0,0,1))
+        """
+        data = ((0,0,0), (1,-1,-1), (0,0,1))
+
+        result = target.escolher_posicao_auto(data, -1, 'perfeito')
+
+        self.assertEqual(result, 7)
+ 
+    def test_escolher_posicao_auto5(self):
+        """
+        Testa a regra 4 (bloqueio de bifurcacao com numero bifurcacoes > 1)
+        tableiro = ((-1,0,0), (0,1,0), (0,0,1))
+        """
+        data = ((-1,0,0), (0,1,0), (0,0,1))
+
+        result = target.escolher_posicao_auto(data, -1, 'perfeito')
+
+        self.assertEqual(result, 3)
+
+    def test_escolher_posicao_auto6(self):
+        """
+        Testa a regra 5 (centro)
+        tableiro = ((0,0,0), (0,0,0), (0,0,0))
+        """
+        data = ((0,0,0), (0,0,0), (0,0,0))
+
+        result = target.escolher_posicao_auto(data, -1, 'perfeito')
+
+        self.assertEqual(result, 5)
+    
+    def test_escolher_posicao_auto7(self):
+        """
+        Testa a regra 6 (canto oposto)
+        tableiro = ((0,0,0), (0,-1,0), (0,0,1))
+        """
+        data = ((0,0,0), (0,-1,0), (0,0,1))
+
+        result = target.escolher_posicao_auto(data, -1, 'normal')
+
+        self.assertEqual(result, 1)
+
+    def test_escolher_posicao_auto8(self):
+        """
+        Testa a regra 7 (canto vazio)
+        tableiro = ((0,0,0), (0,-1,0), (0,0,1))
+        """
+        data = ((-1,0,0), (0,-1,0), (0,0,1))
+
+        result = target.escolher_posicao_auto(data, -1, 'basico')
+
+        self.assertEqual(result, 3)
+
+    def test_escolher_posicao_auto9(self):
+        """
+        Testa a regra 8 (lateral oposto)
+        tableiro = ((-1,0,-1), (0,-1,0), (1,0,1))
+        """
+        data = ((-1,0,-1), (0,-1,0), (1,0,1))
+
+        result = target.escolher_posicao_auto(data, -1, 'basico')
+
+        self.assertEqual(result, 2)
 
 
 class TestJogoDoGalo(unittest.TestCase):
