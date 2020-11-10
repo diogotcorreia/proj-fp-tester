@@ -145,6 +145,26 @@ class TestEscolherPosicaoAuto(unittest.TestCase):
 
 class TestJogoDoGalo(unittest.TestCase):
     def test_jogo_do_galo1(self):
+        """                       
+           |   |            |   |            O |   |          O |   |
+        -----------      -----------        -----------      -----------
+           |   |    ->      | X |      ->      | X |     ->     | X |
+        -----------      -----------        -----------      -----------
+           |   |            |   |              |   |            |   | X
+
+         O |   | O        O | X | O          O | X | O        O | X | O         
+        -----------      -----------        -----------      -----------
+           | X |    ->      | X |      ->      | X |     ->     | X | X
+        -----------      -----------        -----------      -----------
+           |   | X          |   | X            | O | X          | O | X
+
+         O | X | O        O | X | O            
+        -----------      -----------   
+         O | X | X  ->    O | X | X      
+        -----------      -----------
+           | O | X        X | O | X 
+
+        """
         dirname = os.path.dirname(__file__)
         sys.stdin = open(os.path.join(
             dirname, 'testes_jogo_do_galo/test1_input.txt'))
@@ -166,6 +186,26 @@ class TestJogoDoGalo(unittest.TestCase):
         sys.stdin.close()
 
     def test_jogo_do_galo2(self):
+        """                       
+           |   |          X |   |            X |   |          X |   |
+        -----------      -----------        -----------      -----------
+           |   |    ->      |   |      ->      | O |     ->     | O |
+        -----------      -----------        -----------      -----------
+           |   |            |   |              |   |            |   | X
+
+         X | O |          X | O |            X | O |          X | O | X 
+        -----------      -----------        -----------      -----------
+           | O |    ->      | O |      ->      | O |     ->     | O | 
+        -----------      -----------        -----------      -----------  
+           |   | X          | X | X          O | X | X        O | X | X
+
+         X | O | X        X | O | X            
+        -----------      -----------   
+           | O | O  ->    X | O | O      
+        -----------      -----------
+         O | X | X        O | X | X 
+
+        """
         dirname = os.path.dirname(__file__)
         sys.stdin = open(os.path.join(
             dirname, 'testes_jogo_do_galo/test2_input.txt'))
@@ -178,6 +218,41 @@ class TestJogoDoGalo(unittest.TestCase):
 
         answer = open(os.path.join(
             dirname, 'testes_jogo_do_galo/test2_answer.txt'), 'r')
+
+        self.maxDiff = None
+        self.assertEqual(answer.read(), result.read())
+
+        result.close()
+        answer.close()
+        sys.stdin.close()
+
+    def test_jogo_do_galo3(self):
+        """
+           |   |            |   |            O |   |          O | X |
+        -----------      -----------        -----------      -----------
+           |   |    ->      | X |      ->      | X |     ->     | X |
+        -----------      -----------        -----------      -----------
+           |   |            |   |              |   |            |   | 
+
+         O | X |          O | X |            O | X |          O | X | X         
+        -----------      -----------        -----------      -----------
+           | X |    ->      | X |      ->      | X | O    ->    | X | O 
+        -----------      -----------        -----------      -----------
+           | O |          X | O |            X | O |          X | O | 
+
+        """
+        dirname = os.path.dirname(__file__)
+        sys.stdin = open(os.path.join(
+            dirname, 'testes_jogo_do_galo/test3_input.txt'))
+        result = open(os.path.join(
+            dirname, 'testes_jogo_do_galo/my_out.txt'), "w+")
+
+        sys.stdout = result
+        target.jogo_do_galo('O', 'perfeito')
+        result.seek(0, 0)
+
+        answer = open(os.path.join(
+            dirname, 'testes_jogo_do_galo/test3_answer.txt'), 'r')
 
         self.maxDiff = None
         self.assertEqual(answer.read(), result.read())
