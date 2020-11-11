@@ -36,6 +36,11 @@ app.post("/run", async (req, res) => {
     await fs.unlink(filePath);
     res.send(result);
   });
+
+  setTimeout(() => {
+    result += "Max timeout exceeded (3s). Program killed.";
+    pythonProcess.kill();
+  }, 3000);
 });
 
 app.listen(process.env.PORT || 5000);
