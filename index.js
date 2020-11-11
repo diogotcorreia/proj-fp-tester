@@ -39,3 +39,8 @@ app.post("/run", async (req, res) => {
 });
 
 app.listen(process.env.PORT || 5000);
+console.log(
+  `Listening on port ${
+    process.env.PORT || 5000
+  }. You can change this by passing a value to the PORT environment variable.`
+);

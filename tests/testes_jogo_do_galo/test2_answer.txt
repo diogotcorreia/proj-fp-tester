@@ -1,11 +1,11 @@
 Bem-vindo ao JOGO DO GALO.
-O jogador joga com X.
+O jogador joga com 'X'.
 Turno do jogador. Escolha uma posicao livre:  X |   |   
 -----------
    |   |   
 -----------
    |   |   
-turno do computador (perfeito):
+Turno do computador (perfeito):
  X |   |   
 -----------
    | O |   
@@ -16,7 +16,7 @@ Turno do jogador. Escolha uma posicao livre:  X |   |
    | O |   
 -----------
    |   | X 
-turno do computador (perfeito):
+Turno do computador (perfeito):
  X | O |   
 -----------
    | O |   
@@ -27,7 +27,7 @@ Turno do jogador. Escolha uma posicao livre:  X | O |
    | O |   
 -----------
    | X | X 
-turno do computador (perfeito):
+Turno do computador (perfeito):
  X | O |   
 -----------
    | O |   
@@ -38,7 +38,7 @@ Turno do jogador. Escolha uma posicao livre:  X | O | X
    | O |   
 -----------
  O | X | X 
-turno do computador (perfeito):
+Turno do computador (perfeito):
  X | O | X 
 -----------
    | O | O 
@@ -49,4 +49,3 @@ Turno do jogador. Escolha uma posicao livre:  X | O | X
  X | O | O 
 -----------
  O | X | X 
-EMPATE!
