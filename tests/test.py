@@ -231,5 +231,34 @@ class TestJogoDoGalo(unittest.TestCase):
         self.helper_jogo_do_galo(3, 'O', 'perfeito', 'X')
 
 
+class TestTabuleiroStr(unittest.TestCase):
+    def test_tabuleiro_str1(self):
+
+        data = ((1, -1, 0), (1, 0, -1), (1, -1, 0))
+
+        result = target.tabuleiro_str(data)
+
+        self.assertEqual(result, " X | O |   \n-----------\n X |   | O \n-----------\n X | O |   ")
+    def test_tabuleiro_str_2(self):
+        data = ((0,0,0),(0,0,0),(0,0,0))
+
+        result = target.tabuleiro_str(data)
+
+        self.assertEqual(result, "   |   |   \n-----------\n   |   |   \n-----------\n   |   |   ")
+
+    def test_tabuleiro_str_3(self):
+        data = ((1,1,1),(0,0,0),(-1,-1,-1))
+
+        result = target.tabuleiro_str(data)
+
+        self.assertEqual(result, " X | X | X \n-----------\n   |   |   \n-----------\n O | O | O ")
+
+    def test_tabuleiro_str_4(self):
+        data = ((1,0,-1),(1,0,-1),(1,0,-1))
+
+        result = target.tabuleiro_str(data)
+
+        self.assertEqual(result, " X |   | O \n-----------\n X |   | O \n-----------\n X |   | O ")
+
 if __name__ == '__main__':
     unittest.main(argv=['first-arg-is-ignored'])
