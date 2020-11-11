@@ -4,6 +4,26 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>FP Project Tester</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      html,
+      body {
+        font-family: "Roboto", sans-serif;
+      }
+      a {
+        color: #005f87;
+      }
+      .content {
+        display: flex;
+        flex-wrap: wrap;
+      }
+      .content > div {
+        margin-right: 16px;
+      }
+    </style>
   </head>
   <body>
     <p>
@@ -16,18 +36,31 @@
       We currently only have tests for <code>eh_tabuleiro</code>,
       <code>escolher_posicao_auto</code> and <code>jogo_do_galo</code>.
     </p>
-    <div>
-      <p>Paste your file contents below:</p>
-      <textarea id="code" rows="30" cols="80"></textarea>
-    </div>
-    <button id="submit">Run tests</button>
+    <div class="content">
+      <div>
+        <div>
+          <p>Paste your file contents below:</p>
+          <textarea id="code" rows="30" cols="80"></textarea>
+        </div>
+        <button id="submit">Run tests</button>
 
-    <p>
-      Last ran: <span id="last-run"><i>never</i></span>
-      <br />
-      <span id="ascii-alert" style="color: #f00"></span>
-    </p>
-    <textarea id="result" readonly="readonly" rows="30" cols="80"></textarea>
+        <p>
+          Last ran: <span id="last-run"><i>never</i></span>
+          <br />
+          <span id="ascii-alert" style="color: #f00"></span>
+        </p>
+      </div>
+      <div>
+        <p>Output:</p>
+        <textarea
+          id="result"
+          readonly="readonly"
+          rows="30"
+          cols="80"
+        ></textarea>
+      </div>
+    </div>
+    <br />
     <p>
       Pro tip: If can't figure out what's wrong, you can check the
       <a
@@ -36,14 +69,45 @@
         >code for the tests on GitHub</a
       >.
     </p>
+    <div id="advanced-error-div" style="display: none">
+      <h2>Advanced Error Analysis</h2>
+      <p>
+        The following tests have failed. Click on each one to see the
+        corresponding source code.
+      </p>
+      <ul id="advanced-error-content"></ul>
+    </div>
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script>
+      const TEST_FILE_LINK =
+        "https://github.com/diogotcorreia/proj-fp-tester/blob/master/tests/test.py";
+      const ERROR_REGEX = /File ".+\/tests\/test.py", line (\d+), in (\w+)/g;
+      const handleAdvancedErrorHandling = (output) => {
+        const advancedDiv = document.getElementById("advanced-error-div");
+        const matches = [...output.matchAll(ERROR_REGEX)];
+        if (matches.length == 0) {
+          advancedDiv.style.display = "none";
+          return;
+        }
+        advancedDiv.style.display = "block";
+        const content = document.getElementById("advanced-error-content");
+        content.innerHTML = matches
+          .map(
+            ([, line, testName]) =>
+              `<li><a href="${TEST_FILE_LINK}#L${line}" target="_blank">${testName}</a></li>`
+          )
+          .join("");
+      };
+
       document.getElementById("submit").onclick = async () => {
         const content = document.getElementById("code").value;
+        const button = document.getElementById("submit");
+        button.disabled = true;
         const response = await axios.post("/run", content, {
           headers: { "Content-Type": "text/plain" },
         });
+        button.disabled = false;
         const result = document.getElementById("result");
         result.value = response.data;
         const lastrun = document.getElementById("last-run");
@@ -59,6 +123,8 @@
                 ...nonAsciiCharacters,
               ].join(" ")}`;
         document.getElementById("ascii-alert").innerText = msg;
+
+        handleAdvancedErrorHandling(response.data);
       };
     </script>
   </body>
