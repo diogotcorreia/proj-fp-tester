@@ -12,30 +12,30 @@ Turno do jogador. Escolha uma posicao livre:  O |   |
 -----------
    |   |   
 Turno do computador (perfeito):
- O | X |   
+ O |   |   
 -----------
    | X |   
 -----------
-   |   |   
-Turno do jogador. Escolha uma posicao livre:  O | X |   
+   |   | X 
+Turno do jogador. Escolha uma posicao livre:  O |   |   
 -----------
    | X |   
 -----------
-   | O |   
+   | O | X 
 Turno do computador (perfeito):
- O | X |   
+ O |   | X 
 -----------
    | X |   
 -----------
- X | O |   
-Turno do jogador. Escolha uma posicao livre:  O | X |   
+   | O | X 
+Turno do jogador. Escolha uma posicao livre:  O |   | X 
 -----------
    | X | O 
 -----------
- X | O |   
+   | O | X 
 Turno do computador (perfeito):
- O | X | X 
+ O |   | X 
 -----------
    | X | O 
 -----------
- X | O |   
+ X | O | X 

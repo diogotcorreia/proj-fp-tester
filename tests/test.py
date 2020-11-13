@@ -205,7 +205,7 @@ class TestEscolherPosicaoAuto(unittest.TestCase):
 
 
 class TestJogoDoGalo(unittest.TestCase):
-    def helper_jogo_do_galo(self, test_id, player, difficulty, result):
+    def helper_jogo_do_galo(self, test_id, player, difficulty, expected_result):
         dirname = os.path.dirname(__file__)
         sys.stdin = open(os.path.join(
             dirname, 'testes_jogo_do_galo/test' + str(test_id) + '_input.txt'), 'r')
@@ -220,7 +220,7 @@ class TestJogoDoGalo(unittest.TestCase):
 
         self.maxDiff = None
         self.assertEqual(answer.read(), response.read())
-        self.assertEqual('EMPATE', result)
+        self.assertEqual(expected_result, result)
 
         response.close()
         answer.close()
@@ -274,7 +274,7 @@ class TestJogoDoGalo(unittest.TestCase):
         """
         self.helper_jogo_do_galo(2, 'X', 'perfeito', 'EMPATE')
 
-    def atest_jogo_do_galo3(self):
+    def test_jogo_do_galo3(self):
         """
            |   |            |   |            O |   |          O | X |
         -----------      -----------        -----------      -----------
