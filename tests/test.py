@@ -41,6 +41,30 @@ class TestEhTabuleiro(unittest.TestCase):
         result = target.eh_tabuleiro(data)
         self.assertEqual(result, False)
 
+    def test_eh_tabuleiro5(self):
+        """
+        eh_tabuleiro(((1.0, 0, -1.0), (-1, 1, 0), (1, -1, 0))) = False
+        """
+        data = ((1.0, 0, -1.0), (-1, 1, 0), (1, -1, 0))
+        result = target.eh_tabuleiro(data)
+        self.assertEqual(result, False)
+
+    def test_eh_tabuleiro6(self):
+        """
+        eh_tabuleiro(((1, 0, -1), "not a tuple", (1, -1, 0))) = False
+        """
+        data = ((1, 0, -1), "not a tuple", (1, -1, 0))
+        result = target.eh_tabuleiro(data)
+        self.assertEqual(result, False)
+
+    def test_eh_tabuleiro7(self):
+        """
+        eh_tabuleiro("str") = False
+        """
+        data = "str"
+        result = target.eh_tabuleiro(data)
+        self.assertEqual(result, False)
+
 
 class TestEscolherPosicaoManual(unittest.TestCase):
     def test_escolher_posicao_manual1(self):
