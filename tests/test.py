@@ -227,6 +227,479 @@ class TestEscolherPosicaoAuto(unittest.TestCase):
 
         self.assertEqual(result, 2)
 
+    def test_escolher_posicao_auto115(self):
+        """
+        Teste 115 (escolher_posicao_auto)
+        tabuleiro = ((0, 0, 0), (0, 0, 0), (0, 0, 0))
+        """
+        data = ((0, 0, 0), (0, 0, 0), (0, 0, 0))
+
+        result = target.escolher_posicao_auto(data, 1, 'basico')
+
+        self.assertEqual(result, 5)
+
+    def test_escolher_posicao_auto116(self):
+        """
+        Teste 116 (escolher_posicao_auto)
+        tabuleiro = ((1, 0, 0), (0, 0, 0), (0, 0, 0))
+        """
+        data = ((1, 0, 0), (0, 0, 0), (0, 0, 0))
+
+        result = target.escolher_posicao_auto(data, -1, 'basico')
+
+        self.assertEqual(result, 5)
+
+    def test_escolher_posicao_auto117(self):
+        """
+        Teste 117 (escolher_posicao_auto)
+        tabuleiro = ((0, 0, 0), (0, 1, 0), (0, 0, 0))
+        """
+        data = ((0, 0, 0), (0, 1, 0), (0, 0, 0))
+
+        result = target.escolher_posicao_auto(data, -1, 'basico')
+
+        self.assertEqual(result, 1)
+
+    def test_escolher_posicao_auto118(self):
+        """
+        Teste 118 (escolher_posicao_auto)
+        tabuleiro = ((1, 0, 0), (0, -1, 0), (0, 0, 0))
+        """
+        data = ((1, 0, 0), (0, -1, 0), (0, 0, 0))
+
+        result = target.escolher_posicao_auto(data, 1, 'basico')
+
+        self.assertEqual(result, 3)
+
+    def test_escolher_posicao_auto119(self):
+        """
+        Teste 119 (escolher_posicao_auto)
+        tabuleiro = ((1, 0, 1), (0, -1, 0), (-1, 0, 0))
+        """
+        data = ((1, 0, 1), (0, -1, 0), (-1, 0, 0))
+
+        result = target.escolher_posicao_auto(data, 1, 'basico')
+
+        self.assertEqual(result, 9)
+
+    def test_escolher_posicao_auto120(self):
+        """
+        Teste 120 (escolher_posicao_auto)
+        tabuleiro = ((1, 0, 1), (0, 1, 0), (-1, 0, -1))
+        """
+        data = ((1, 0, 1), (0, 1, 0), (-1, 0, -1))
+
+        result = target.escolher_posicao_auto(data, -1, 'basico')
+
+        self.assertEqual(result, 2)
+
+    def test_escolher_posicao_auto121(self):
+        """
+        Teste 121 (escolher_posicao_auto)
+        tabuleiro = ((1, -1, 1), (0, -1, 0), (-1, 0, 1))
+        """
+        data = ((1, -1, 1), (0, -1, 0), (-1, 0, 1))
+
+        result = target.escolher_posicao_auto(data, 1, 'basico')
+
+        self.assertEqual(result, 4)
+
+    def test_escolher_posicao_auto122(self):
+        """
+        Teste 122 (escolher_posicao_auto)
+        tabuleiro = ((1, -1, 1), (1, -1, -1), (-1, 0, 1))
+        """
+        data = ((1, -1, 1), (1, -1, -1), (-1, 0, 1))
+
+        result = target.escolher_posicao_auto(data, 1, 'basico')
+
+        self.assertEqual(result, 8)
+
+    def test_escolher_posicao_auto123(self):
+        """
+        Teste 123 (escolher_posicao_auto)
+        tabuleiro = ((0, 0, 0), (0, -1, 1), (1, 0, 0))
+        """
+        data = ((0, 0, 0), (0, -1, 1), (1, 0, 0))
+
+        result = target.escolher_posicao_auto(data, -1, 'basico')
+
+        self.assertEqual(result, 1)
+
+    def test_escolher_posicao_auto124(self):
+        """
+        Teste 124 (escolher_posicao_auto)
+        tabuleiro = ((0, 0, 0), (0, 0, 0), (0, 0, 0))
+        """
+        data = ((0, 0, 0), (0, 0, 0), (0, 0, 0))
+
+        result = target.escolher_posicao_auto(data, 1, 'normal')
+
+        self.assertEqual(result, 5)
+
+    def test_escolher_posicao_auto125(self):
+        """
+        Teste 125 (escolher_posicao_auto)
+        tabuleiro = ((0, 1, 0), (0, 0, 0), (0, 0, 0))
+        """
+        data = ((0, 1, 0), (0, 0, 0), (0, 0, 0))
+
+        result = target.escolher_posicao_auto(data, -1, 'normal')
+
+        self.assertEqual(result, 5)
+
+    def test_escolher_posicao_auto126(self):
+        """
+        Teste 126 (escolher_posicao_auto)
+        tabuleiro = ((0, 0, 0), (0, 1, 0), (0, 0, 0))
+        """
+        data = ((0, 0, 0), (0, 1, 0), (0, 0, 0))
+
+        result = target.escolher_posicao_auto(data, -1, 'normal')
+
+        self.assertEqual(result, 1)
+
+    def test_escolher_posicao_auto127(self):
+        """
+        Teste 127 (escolher_posicao_auto)
+        tabuleiro = ((1, 0, 0), (0, -1, 0), (0, 0, 0))
+        """
+        data = ((1, 0, 0), (0, -1, 0), (0, 0, 0))
+
+        result = target.escolher_posicao_auto(data, 1, 'normal')
+
+        self.assertEqual(result, 3)
+
+    def test_escolher_posicao_auto128(self):
+        """
+        Teste 128 (escolher_posicao_auto)
+        tabuleiro = ((-1, 0, 0), (0, 1, 0), (0, 0, 0))
+        """
+        data = ((-1, 0, 0), (0, 1, 0), (0, 0, 0))
+
+        result = target.escolher_posicao_auto(data, 1, 'normal')
+
+        self.assertEqual(result, 9)
+
+    def test_escolher_posicao_auto129(self):
+        """
+        Teste 129 (escolher_posicao_auto)
+        tabuleiro = ((0, 0, -1), (0, 1, 0), (0, 0, 0))
+        """
+        data = ((0, 0, -1), (0, 1, 0), (0, 0, 0))
+
+        result = target.escolher_posicao_auto(data, 1, 'normal')
+
+        self.assertEqual(result, 7)
+
+    def test_escolher_posicao_auto130(self):
+        """
+        Teste 130 (escolher_posicao_auto)
+        tabuleiro = ((1, 0, 1), (0, -1, 0), (-1, 0, 0))
+        """
+        data = ((1, 0, 1), (0, -1, 0), (-1, 0, 0))
+
+        result = target.escolher_posicao_auto(data, 1, 'normal')
+
+        self.assertEqual(result, 2)
+
+    def test_escolher_posicao_auto131(self):
+        """
+        Teste 131 (escolher_posicao_auto)
+        tabuleiro = ((0, 0, 1), (0, -1, 0), (-1, 0, 1))
+        """
+        data = ((0, 0, 1), (0, -1, 0), (-1, 0, 1))
+
+        result = target.escolher_posicao_auto(data, 1, 'normal')
+
+        self.assertEqual(result, 6)
+
+    def test_escolher_posicao_auto132(self):
+        """
+        Teste 132 (escolher_posicao_auto)
+        tabuleiro = ((1, 0, 0), (0, 1, 0), (-1, -1, 0))
+        """
+        data = ((1, 0, 0), (0, 1, 0), (-1, -1, 0))
+
+        result = target.escolher_posicao_auto(data, 1, 'normal')
+
+        self.assertEqual(result, 9)
+
+    def test_escolher_posicao_auto133(self):
+        """
+        Teste 133 (escolher_posicao_auto)
+        tabuleiro = ((1, 0, 0), (1, 0, 0), (0, -1, 0))
+        """
+        data = ((1, 0, 0), (1, 0, 0), (0, -1, 0))
+
+        result = target.escolher_posicao_auto(data, -1, 'normal')
+
+        self.assertEqual(result, 7)
+
+    def test_escolher_posicao_auto134(self):
+        """
+        Teste 134 (escolher_posicao_auto)
+        tabuleiro = ((1, 0, 1), (0, 0, 0), (0, -1, 0))
+        """
+        data = ((1, 0, 1), (0, 0, 0), (0, -1, 0))
+
+        result = target.escolher_posicao_auto(data, -1, 'normal')
+
+        self.assertEqual(result, 2)
+
+    def test_escolher_posicao_auto135(self):
+        """
+        Teste 135 (escolher_posicao_auto)
+        tabuleiro = ((1, -1, 1), (0, -1, 0), (0, 0, 0))
+        """
+        data = ((1, -1, 1), (0, -1, 0), (0, 0, 0))
+
+        result = target.escolher_posicao_auto(data, 1, 'normal')
+
+        self.assertEqual(result, 8)
+
+    def test_escolher_posicao_auto136(self):
+        """
+        Teste 136 (escolher_posicao_auto)
+        tabuleiro = ((1, 0, 1), (0, 1, 0), (-1, 0, -1))
+        """
+        data = ((1, 0, 1), (0, 1, 0), (-1, 0, -1))
+
+        result = target.escolher_posicao_auto(data, -1, 'normal')
+
+        self.assertEqual(result, 8)
+
+    def test_escolher_posicao_auto137(self):
+        """
+        Teste 137 (escolher_posicao_auto)
+        tabuleiro = ((1, -1, 1), (0, -1, 0), (-1, 0, 1))
+        """
+        data = ((1, -1, 1), (0, -1, 0), (-1, 0, 1))
+
+        result = target.escolher_posicao_auto(data, 1, 'normal')
+
+        self.assertEqual(result, 6)
+
+    def test_escolher_posicao_auto138(self):
+        """
+        Teste 138 (escolher_posicao_auto)
+        tabuleiro = ((0, 0, 0), (0, -1, 1), (1, 0, 0))
+        """
+        data = ((0, 0, 0), (0, -1, 1), (1, 0, 0))
+
+        result = target.escolher_posicao_auto(data, -1, 'normal')
+
+        self.assertEqual(result, 3)
+
+    def test_escolher_posicao_auto139(self):
+        """
+        Teste 139 (escolher_posicao_auto)
+        tabuleiro = ((0, 0, 0), (0, -1, 1), (0, 1, 0))
+        """
+        data = ((0, 0, 0), (0, -1, 1), (0, 1, 0))
+
+        result = target.escolher_posicao_auto(data, -1, 'normal')
+
+        self.assertEqual(result, 1)
+
+    def test_escolher_posicao_auto140(self):
+        """
+        Teste 140 (escolher_posicao_auto)
+        tabuleiro = ((0, 0, 0), (0, 0, 0), (0, 1, 0))
+        """
+        data = ((0, 0, 0), (0, 0, 0), (0, 1, 0))
+
+        result = target.escolher_posicao_auto(data, -1, 'perfeito')
+
+        self.assertEqual(result, 5)
+
+    def test_escolher_posicao_auto141(self):
+        """
+        Teste 141 (escolher_posicao_auto)
+        tabuleiro = ((1, -1, 0), (0, 0, 0), (0, 0, 0))
+        """
+        data = ((1, -1, 0), (0, 0, 0), (0, 0, 0))
+
+        result = target.escolher_posicao_auto(data, 1, 'perfeito')
+
+        self.assertEqual(result, 5)
+
+    def test_escolher_posicao_auto142(self):
+        """
+        Teste 142 (escolher_posicao_auto)
+        tabuleiro = ((0, 0, 0), (0, -1, 0), (1, 0, 0))
+        """
+        data = ((0, 0, 0), (0, -1, 0), (1, 0, 0))
+
+        result = target.escolher_posicao_auto(data, 1, 'perfeito')
+
+        self.assertEqual(result, 1)
+
+    def test_escolher_posicao_auto143(self):
+        """
+        Teste 143 (escolher_posicao_auto)
+        tabuleiro = ((1, 0, -1), (0, -1, 0), (1, 0, 0))
+        """
+        data = ((1, 0, -1), (0, -1, 0), (1, 0, 0))
+
+        result = target.escolher_posicao_auto(data, 1, 'perfeito')
+
+        self.assertEqual(result, 4)
+
+    def test_escolher_posicao_auto144(self):
+        """
+        Teste 144 (escolher_posicao_auto)
+        tabuleiro = ((0, 0, 1), (0, 1, 0), (0, -1, -1))
+        """
+        data = ((0, 0, 1), (0, 1, 0), (0, -1, -1))
+
+        result = target.escolher_posicao_auto(data, 1, 'perfeito')
+
+        self.assertEqual(result, 7)
+
+    def test_escolher_posicao_auto145(self):
+        """
+        Teste 145 (escolher_posicao_auto)
+        tabuleiro = ((0, -1, 0), (0, 0, 0), (1, 0, 1))
+        """
+        data = ((0, -1, 0), (0, 0, 0), (1, 0, 1))
+
+        result = target.escolher_posicao_auto(data, 1, 'perfeito')
+
+        self.assertEqual(result, 8)
+
+    def test_escolher_posicao_auto146(self):
+        """
+        Teste 146 (escolher_posicao_auto)
+        tabuleiro = ((1, 0, 0), (-1, -1, 0), (1, 0, 0))
+        """
+        data = ((1, 0, 0), (-1, -1, 0), (1, 0, 0))
+
+        result = target.escolher_posicao_auto(data, 1, 'perfeito')
+
+        self.assertEqual(result, 6)
+
+    def test_escolher_posicao_auto147(self):
+        """
+        Teste 147 (escolher_posicao_auto)
+        tabuleiro = ((-1, 0, -1), (0, 1, 0), (1, 0, 1))
+        """
+        data = ((-1, 0, -1), (0, 1, 0), (1, 0, 1))
+
+        result = target.escolher_posicao_auto(data, -1, 'perfeito')
+
+        self.assertEqual(result, 2)
+
+    def test_escolher_posicao_auto148(self):
+        """
+        Teste 148 (escolher_posicao_auto)
+        tabuleiro = ((1, -1, 0), (0, 1, 0), (0, 0, -1))
+        """
+        data = ((1, -1, 0), (0, 1, 0), (0, 0, -1))
+
+        result = target.escolher_posicao_auto(data, 1, 'perfeito')
+
+        self.assertEqual(result, 4)
+
+    def test_escolher_posicao_auto149(self):
+        """
+        Teste 149 (escolher_posicao_auto)
+        tabuleiro = ((-1, 1, 0), (0, -1, 0), (0, 0, 1))
+        """
+        data = ((-1, 1, 0), (0, -1, 0), (0, 0, 1))
+
+        result = target.escolher_posicao_auto(data, 1, 'perfeito')
+
+        self.assertEqual(result, 3)
+
+    def test_escolher_posicao_auto150(self):
+        """
+        Teste 150 (escolher_posicao_auto)
+        tabuleiro = ((0, 0, 0), (0, -1, 1), (1, 0, 0))
+        """
+        data = ((0, 0, 0), (0, -1, 1), (1, 0, 0))
+
+        result = target.escolher_posicao_auto(data, -1, 'perfeito')
+
+        self.assertEqual(result, 9)
+
+    def test_escolher_posicao_auto151(self):
+        """
+        Teste 151 (escolher_posicao_auto)
+        tabuleiro = ((0, 0, 1), (0, -1, 0), (1, 0, 0))
+        """
+        data = ((0, 0, 1), (0, -1, 0), (1, 0, 0))
+
+        result = target.escolher_posicao_auto(data, -1, 'perfeito')
+
+        self.assertEqual(result, 2)
+
+    def test_escolher_posicao_auto152(self):
+        """
+        Teste 152 (escolher_posicao_auto)
+        tabuleiro = ((0, 0, 0), (1, -1, -1), (0, 0, 1))
+        """
+        data = ((0, 0, 0), (1, -1, -1), (0, 0, 1))
+
+        result = target.escolher_posicao_auto(data, 1, 'perfeito')
+
+        self.assertEqual(result, 7)
+
+    def test_escolher_posicao_auto153(self):
+        """
+        Teste 153 (escolher_posicao_auto)
+        tabuleiro = ((0, 0, 0), (-1, 1, 1), (0, 0, -1))
+        """
+        data = ((0, 0, 0), (-1, 1, 1), (0, 0, -1))
+
+        result = target.escolher_posicao_auto(data, 1, 'perfeito')
+
+        self.assertEqual(result, 7)
+
+    def test_escolher_posicao_auto154(self):
+        """
+        Teste 154 (escolher_posicao_auto)
+        tabuleiro = ((0, 0, 0), (0, -1, 1), (0, 1, 0))
+        """
+        data = ((0, 0, 0), (0, -1, 1), (0, 1, 0))
+
+        result = target.escolher_posicao_auto(data, -1, 'perfeito')
+
+        self.assertEqual(result, 9)
+
+    def test_escolher_posicao_auto155(self):
+        """
+        Teste 155 (escolher_posicao_auto)
+        tabuleiro = ((1, 0, 0), (0, 1, 0), (0, 0, -1))
+        """
+        data = ((1, 0, 0), (0, 1, 0), (0, 0, -1))
+
+        result = target.escolher_posicao_auto(data, -1, 'perfeito')
+
+        self.assertEqual(result, 3)
+
+    def test_escolher_posicao_auto156(self):
+        """
+        Teste 156 (escolher_posicao_auto)
+        tabuleiro = ((-1, 0, 0), (0, 1, -1), (0, 0, 1))
+        """
+        data = ((-1, 0, 0), (0, 1, -1), (0, 0, 1))
+
+        result = target.escolher_posicao_auto(data, 1, 'perfeito')
+
+        self.assertEqual(result, 7)
+
+    def test_escolher_posicao_auto157(self):
+        """
+        Teste 157 (escolher_posicao_auto)
+        tabuleiro = ((1, 0, 0), (0, -1, 1), (0, 0, -1))
+        """
+        data = ((1, 0, 0), (0, -1, 1), (0, 0, -1))
+
+        result = target.escolher_posicao_auto(data, 1, 'perfeito')
+
+        self.assertEqual(result, 2)
+
 
 class TestJogoDoGalo(unittest.TestCase):
     def helper_jogo_do_galo(self, test_id, player, difficulty, expected_result):
